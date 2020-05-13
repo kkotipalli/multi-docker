@@ -13,4 +13,9 @@ after_success:
     - docker build -t karthikkoti/multi-nginx ./nginx
     - docker build -t karthikkoti/multi-server ./server
     - docker build -t karthikkoti/multi-worker ./worker
+
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push karthikkoti/multi-client
+    - docker push karthikkoti/multi-nginx
+    - docker push karthikkoti/multi-server
+    - docker push karthikkoti/multi-worker
